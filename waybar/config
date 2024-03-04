@@ -1,0 +1,75 @@
+{
+  "layer": "top",
+  "position": "top", 
+  "height": 30,
+  "spacing": 6,
+  "modules-left": ["custom/launcher", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "backlight", "pulseaudio", "battery", "tray"],
+  "hyprland/workspaces": {
+      "format": "{name}",
+      "on-click": "activate",
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1",
+  },
+  "tray": {
+      "icon-size": 20,
+      "spacing": 10
+  },
+  "clock": {
+      "format": "\uf133 {:%Y-%m-%d %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "network": {
+      "interval": 20,
+      "format-wifi": "  {signalStrength}%",
+      "format-ethernet": "\uf6ff {ipaddr}/{cidr}",
+      "format-linked": "\uf059 No IP ({ifname})",
+      "format-disconnected": "\uf071 Disconnected",
+      "max-length": 50,
+      "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+  },
+  "pulseaudio": {
+      "scroll-step": 5,
+      "format": "{icon} {volume}%",
+      "format-muted": "󰖁 Muted",
+      "format-bluetooth": "{icon}\uf294 {volume}%",
+      "format-bluetooth-muted": "\ufa69 {icon}\uf294",
+      "format-icons": {
+          "default": ["\uf026", "\uf027", "\uf028"]
+      },
+  },
+  "backlight" : {
+     "on-scroll-up" : "light -A 5.1",
+     "on-scroll-down" : "light -U 5.1",
+     "format" : "{icon} {percent}%",
+     "format-icons" : [ "󰃝", "󰃞", "󰃟", "󰃠", ],
+     "tooltip": false,
+  },
+  "custom/launcher": {
+      "format": " ",
+      "on-click": "rofi -show drun",
+      "on-click-right": "killall rofi",
+      "tooltip": false
+  },
+  "battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+        "good": 95,
+        "warning": 50,
+        "critical": 20
+    },
+    "tooltip": true,
+    "tooltip-format": "{timeTo}",
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "group/power": {
+      "modules": [
+      "network",
+      "battery",
+      ],
+    }
+}

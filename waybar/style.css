@@ -1,0 +1,132 @@
+/* @define-color backgroundligt rgba(255,255,255,0.5); */
+@import "mocha.css";
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "JetBrainsMono NF";
+  font-weight: 500;
+  font-size: 18px;
+
+  color: @text;
+
+  border-radius: 18px;
+  text-shadow: none;
+
+  transition-property: background;
+  transition-duration: 0.2s;
+}
+
+window#waybar {
+  /* background-color: shade(@base, 0.9); */
+  background-color: alpha(@base, 0.8);
+  border: 2px solid alpha(@crust, 1);
+}
+
+#workspaces {
+  background-color: alpha(@surface1, 0.4);
+}
+
+#workspaces button {
+  border-radius: 50%;
+  margin: 0 3px;
+  padding: 0 12px;
+  background: transparent;
+  border-style: none;
+}
+
+#workspaces button:hover {
+  background-color: @overlay2;
+}
+
+#workspaces button.active {
+  background-color: @overlay0;
+}
+
+#workspaces button.active:hover {
+  background-color: @overlay2;
+}
+
+#custom-launcher,
+#workspaces,
+#clock,
+#network,
+#pulseaudio,
+#battery,
+#backlight,
+#tray {
+  margin-top: 6px;
+  padding: 0 8px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > * {
+  margin-left: 10px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > * {
+  margin-right: 10px;
+}
+
+#backlight {
+  background-color: @surface1;
+}
+
+#clock {
+  background-color: @surface1;
+}
+
+#pulseaudio {
+  background-color: @surface1;
+}
+
+#network {
+  background-color: @surface1;
+}
+
+#tray {
+  background-color: @surface1;
+}
+
+/* #tray>.passive { */
+/*   -gtk-icon-effect: dim; */
+/* } */
+/**/
+/* #tray>.needs-attention { */
+/*   -gtk-icon-effect: highlight; */
+/*   background-color: #eb4d4b; */
+/* } */
+
+#custom-launcher {
+  font-size: 24px;
+  color: #89dceb;
+  /* color: #cocaf5; */
+  background: transparent;
+}
+
+#battery {
+  transition: none;
+  background-color: @surface1;
+}
+
+#battery.good,
+#battery.full,
+#battery.charging,
+#battery.plugged {
+  color: @green;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: @red;
+  }
+}
