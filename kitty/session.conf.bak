@@ -1,0 +1,8 @@
+
+
+new_tab ./dump-sesison.sh
+layout splits
+cd /home/JmZeroQAQ/Documents/OS-2022/labs/L0/os-workbench-2022/amgame
+launch /bin/zsh
+launch bash ./dump-sesison.sh
+focus

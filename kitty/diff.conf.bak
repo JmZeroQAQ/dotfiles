@@ -4,7 +4,7 @@
 
 syntax_aliases pyj:py pyi:py recipe:py
 
-#: File extension aliases for syntax highlight For example, to syntax
+#: File extension aliaonses for syntax highlight For example, to syntax
 #: highlight file.xyz as file.abc use a setting of xyz:abc
 
 num_context_lines 3

@@ -62,7 +62,7 @@
     },
     "tooltip": true,
     "tooltip-format": "{timeTo}",
-    "format": "{icon}  {capacity}%",
+    "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""]
   },
 
